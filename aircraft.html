@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Fleet – Flymoo Air Safaris</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="images/logo.jpeg" alt="Flymoo Air Safaris">
+    </div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="aircraft.html" class="active">Aircraft</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+    </ul>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+</nav>
+
+<section class="page-header video-header">
+    <video id="bg-video" autoplay muted loop playsinline class="bg-video">
+        <source src="images/video1.mp4" type="video/mp4">
+        <!-- fallback: second video will be swapped in by JS -->
+    </video>
+    <div class="overlay">
+        <h1>Our Fleet</h1>
+        <p>Experience the skies in comfort and style with our modern aircraft.</p>
+    </div>
+</section>
+
+<section class="fleet">
+    <div class="container">
+        <h2 data-aos="fade-up">Aircraft Available for Charter</h2>
+        <div class="fleet-grid">
+            <!-- Aircraft Card 1 -->
+            <div class="aircraft-card" data-aos="zoom-in">
+                <div class="aircraft-image">
+                    <img src="images/EC120B.jpeg" alt="Cessna 208 Caravan">
+                </div>
+                <div class="aircraft-details">
+                    <h3>Airbus EC120B</h3>
+                    <p>Perfect for remote landings and diverse terrain. Seats up to 4 passengers. Ideal for scenic flights, aerial safaris, and luxury charters.</p>
+                    <ul class="specs">
+                        <li><strong>Capacity:</strong> 4 passengers</li>
+                        <li><strong>Range:</strong> 390 nm</li>
+                        <li><strong>Cruise Speed:</strong> 120 kts</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn">Request Charter</a>
+                </div>
+            </div>
+
+            <!-- Aircraft Card 2 -->
+            <div class="aircraft-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="aircraft-image">
+                    <img src="images/AS350B.jpeg" alt="Beechcraft King Air 350">
+                </div>
+                <div class="aircraft-details">
+                    <h3>Airbus AS350B </h3>
+                    <p>Powerful and reliable for high-altitude and remote operations. Seats up to 5–6 passengers. Ideal for safari charters and scenic flights.</p>
+                    <ul class="specs">
+                        <li><strong>Capacity:</strong> 5 passengers</li>
+                        <li><strong>Range:</strong> 360 nm</li>
+                        <li><strong>Cruise Speed:</strong> 140 kts</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn">Request Charter</a>
+                </div>
+            </div>
+
+            <!-- Aircraft Card 3 -->
+            <div class="aircraft-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="aircraft-image">
+                    <img src="images/cessna.jpg" alt="Pilatus PC-12">
+                </div>
+                <div class="aircraft-details">
+                    <h3>Cessna 208 Caravan</h3>
+                    <p>Perfect for short runways and remote airstrips. Seats up to 9 passengers. Ideal for safari charters and scenic flights.</p>
+                    <ul class="specs">
+                        <li><strong>Capacity:</strong> 9 passengers</li>
+                        <li><strong>Range:</strong> 900 nm</li>
+                        <li><strong>Cruise Speed:</strong> 186 kts</li>
+                    </ul>
+                    <a href="index.html#contact" class="btn">Request Charter</a>
+                </div>
+            </div>
+
+            <!-- Add more aircraft as needed -->
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2026 Flymoo Air Safaris. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/script.js"></script>
+<script>
+    // Ensure AOS and other global scripts work
+    document.addEventListener("DOMContentLoaded", () => {
+        AOS.init({ duration: 1000, once: true });
+    });
+</script>
+
+<!-- Booking Modal -->
+<div id="booking-modal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>Request a Charter</h2>
+        <form id="booking-form" action="https://formspree.io/f/xkopgkkk" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <select name="aircraft" id="aircraft-select" required>
+                <option value="">Select Aircraft</option>
+                <option value="Cessna 208 Caravan">Cessna 208 Caravan</option>
+                <option value="Beechcraft King Air 350">Beechcraft King Air 350</option>
+                <option value="Pilatus PC-12">Pilatus PC-12</option>
+            </select>
+            <input type="date" name="date" placeholder="Preferred Date" required>
+            <textarea name="message" placeholder="Additional details (passengers, special requests, etc.)" rows="4"></textarea>
+            <button type="submit">Send Request</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    // Get the video element
+    const video = document.getElementById('bg-video');
+    let currentVideo = 1; // 1 or 2
+
+    // Preload the second video
+    const video2 = document.createElement('video');
+    video2.src = 'images/video2.mp4';
+    video2.load();
+
+    // When the first video ends, swap to the second
+    video.addEventListener('ended', () => {
+        if (currentVideo === 1) {
+            // Switch to video2
+            video.src = 'images/video2.mp4';
+            currentVideo = 2;
+        } else {
+            // Switch back to video1
+            video.src = 'images/video1.mp4';
+            currentVideo = 1;
+        }
+        video.load();
+        video.play();
+    });
+
+    // In case the video doesn't autoplay due to browser restrictions, try to play on any user interaction
+    function ensureAutoplay() {
+        video.play().catch(e => console.log('Autoplay prevented:', e));
+    }
+    document.addEventListener('click', ensureAutoplay);
+    document.addEventListener('touchstart', ensureAutoplay);
+</script>
+
+</body>
+</html>
